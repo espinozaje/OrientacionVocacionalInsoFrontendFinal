@@ -1,0 +1,196 @@
+.header {
+    background-color: #1a1b4b;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 40px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+  
+      .logo {
+        max-width: 50px;
+      }
+  
+      .company-name {
+        font-size: 24px;
+        font-weight: bold;
+        color: #ff7f00;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+      }
+    }
+  }
+  
+  .profile-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 60px 40px;
+    gap: 80px;
+    background: linear-gradient(135deg, #2d2a75 0%, #1a1b4b 100%);
+    border-radius: 15px;
+    margin: 40px auto;
+    width: 90%;
+    max-width: 1200px;
+  
+    .profile-card {
+      background-color: #222354;
+      padding: 20px;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+      width: 300px;
+  
+      .profile-image-container {
+        background-color: white;
+        border-radius: 50%; // Asegura que el contenedor sea circular
+        padding: 5px;
+        margin-bottom: 20px;
+        display: inline-block; // Asegura que el contenedor sea del tamaño adecuado
+      }
+  
+      .profile-image {
+        border-radius: 50%; // Mantiene la imagen circular
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+      }
+  
+      h2 {
+        font-size: 26px;
+        color: #ff7f00;
+        margin: 15px 0;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+      }
+  
+      .career-text {
+        font-size: 16px;
+        color: #b3b3ff;
+        margin-bottom: 5px;
+      }
+  
+      h3 {
+        font-size: 20px;
+        color: #ffdf91;
+        font-weight: bold;
+      }
+    }
+  
+    .profile-details {
+      background-color: #222354;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+      flex: 1;
+      max-width: 600px;
+  
+      h1 {
+        font-size: 30px;
+        color: #ff7f00;
+        margin-bottom: 30px;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+      }
+  
+      .profile-info {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+  
+        .info-group {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 10px 0;
+          border-bottom: 1px solid #444;
+  
+          label {
+            font-size: 18px;
+            color: #ffdf91;
+            font-weight: bold;
+          }
+  
+          .static-text {
+            font-size: 18px;
+            color: #b3b3ff;
+          }
+        }
+      }
+    }
+  }
+  
+  /* Media Queries para Responsividad */
+  
+  /* Pantallas de laptop pequeñas y tablets */
+  @media (max-width: 1024px) {
+    .profile-container {
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+    }
+  
+    .profile-card {
+      width: 100%;
+    }
+  
+    .profile-details {
+      max-width: 100%;
+    }
+  }
+  
+  /* Pantallas de móvil */
+  @media (max-width: 768px) {
+    .profile-container {
+      padding: 30px 20px;
+    }
+  
+    .profile-card {
+      .profile-image {
+        width: 120px;
+        height: 120px;
+      }
+  
+      h2 {
+        font-size: 22px;
+      }
+  
+      .career-text {
+        font-size: 14px;
+      }
+  
+      h3 {
+        font-size: 18px;
+      }
+    }
+  
+    .profile-details {
+      padding: 20px;
+      h1 {
+        font-size: 24px;
+      }
+  
+      .profile-info .info-group label,
+      .profile-info .info-group .static-text {
+        font-size: 14px;
+      }
+    }
+  }
+
+
+  .back {
+    display: flex;
+    align-items: center;
+    color: white;
+    text-decoration: none; /* para quitar subrayado en el enlace */
+}
+
+.back .material-icons-sharp {
+    margin-right: 5px; /* Espacio entre el icono y el texto */
+}
+
+.back h3 {
+    margin: 0; /* Elimina cualquier margen adicional en el h3 */
+    font-weight: bold;
+}

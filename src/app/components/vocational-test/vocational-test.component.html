@@ -1,0 +1,66 @@
+<div class="test-vocacional">
+  <div class="header">
+    <div class="logo-container">
+      <a routerLink="/home">
+        <img src="mi-logo.png" alt="T-UPAO" class="logo" />
+      </a>
+    </div>
+  </div>
+
+  
+  <div *ngIf="questions && questions.length > 0" class="containerquestion">
+    <h1>Test Vocacional</h1>
+
+   
+    <div class="progress-bar-container">
+      <div class="progress-bar">
+        <div class="progress" [style.width]="getProgress() + '%'"></div>
+      </div>
+    </div>
+
+    <!-- Contenido principal -->
+    <div class="content-container">
+      <img src="https://uniscopio.com/wp-content/uploads/2019/11/Habitos-de-Estudio.png" alt="Imagen Pregunta" class="question-image" width="220" height="auto" />
+      <!-- Mostrar la pregunta actual mientras no se haya llegado al final -->
+      <div *ngIf="currentQuestionIndex < questions.length; else showResult" class="question-container">
+        <h3>Pregunta {{ currentQuestionIndex + 1 }} de {{ questions.length }}</h3>
+        <p>{{ questions[currentQuestionIndex].text }}</p>
+
+        <!-- Botones de opciones -->
+        <div class="button-container">
+          <button *ngFor="let option of questions[currentQuestionIndex].options" 
+                  (click)="selectOption(option)" class="btn btn-interes">
+            {{ option.text }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mostrar el resultado del test cuando todas las preguntas hayan sido respondidas -->
+  <ng-template #showResult>
+    <div class="result-card">
+      <h3>Resultado del Test Vocacional</h3>
+      <p>Área recomendada: <strong>{{ testResult.area || 'No se pudo determinar el área' }}</strong></p>
+      <ul>
+        <li *ngFor="let carrera of testResult.careers">{{ carrera }}</li>
+      </ul>
+    </div>
+    <button class="btn btn-interes">
+      <a routerLink="/pageprincipal">Volver al inicio</a>
+    </button>
+  </ng-template>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+

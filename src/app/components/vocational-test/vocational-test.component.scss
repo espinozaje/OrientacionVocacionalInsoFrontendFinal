@@ -1,0 +1,175 @@
+.test-vocacional {
+  
+  color: white;
+  text-align: center;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+.containerquestion{
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+  .header {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+
+    /* Flexbox para alinear imagen y texto "T-UPAO" */
+    .logo-container {
+      display: flex;
+      align-items: center; /* Alinea verticalmente el texto con la imagen */
+      gap: 10px; /* Espacio entre la imagen y el texto */
+    }
+
+    .logo {
+      width: 50px;
+    }
+
+    .logo-text {
+      font-size: 1.5rem;
+      color: white;
+    }
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 40px;
+  }
+
+  .progress-bar-container {
+   
+    margin-bottom: 50px;
+
+    .progress-bar {
+      background-color: #ccc;
+      height: 30px;
+      border-radius: 10px;
+      overflow: hidden;
+
+      .progress {
+        background-color: #6c63ff;
+        height: 100%;
+        border-radius: 10px 0 0 10px;
+      }
+    }
+
+    .progress-text {
+      margin-top: 10px;
+      font-size: 1.2rem;
+      color: white;
+    }
+  }
+
+  .content-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    
+    max-width: 900px;
+    margin-top: 20px;
+    position: relative;
+
+    .question-image {
+      position: absolute;
+      left: -150px;
+      width: 180px;
+      height: auto;
+    }
+
+    .question-container {
+      background-color: #2c2c6e;
+      padding: 30px;
+      border-radius: 10px;
+      width: 700px;
+    
+      
+      margin-right: auto;
+      height: 300px;
+
+      h2 {
+        font-size: 1.8rem;
+        margin-bottom: 10px;
+      }
+
+      p {
+        font-size: 1.2rem;
+       
+      }
+
+      .button-container {
+        padding-top: 70px;
+        display: flex;
+        justify-content: space-around;
+
+        .btn {
+          background-color: #6c63ff;
+          border: none;
+          color: white;
+          font-size: 1.2rem;
+          padding: 10px 20px;
+          border-radius: 5px;
+          cursor: pointer;
+          width: 40%;
+          transition: background-color 0.3s ease;
+
+          &:hover {
+            background-color: #5757d1;
+          }
+
+          &.btn-no-interes {
+            background-color: #6c63ff;
+          }
+        }
+      }
+    }
+  }
+
+  /* Media Query para pantallas pequeñas (móviles) */
+  @media (max-width: 968px) {
+    .content-container {
+      flex-direction: column; /* Cambia la dirección a columna */
+      align-items: center; /* Centra los elementos verticalmente */
+      gap: 20px; /* Reduce el espacio entre los elementos en móviles */
+
+      .question-image {
+        position: relative;
+        left: 0;
+        width: 150px; /* Ajusta el tamaño de la imagen */
+        height: auto;
+        margin-top: 20px;
+        order: 3; /* Asegura que la imagen vaya al final */
+      }
+
+      .question-container {
+        height: 350px;
+        width: 100%;
+        max-width: 90%; /* Ajusta el ancho en móviles para centrarse mejor */
+        margin: 0 auto; /* Asegura que el contenedor esté centrado */
+      }
+    }
+
+    .test-vocacional {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .question-image {
+        margin-top: 30px;
+        width: 150px;
+      }
+    }
+
+    .question-image {
+      position: relative;
+      margin-top: 30px;
+    }
+  }
+}

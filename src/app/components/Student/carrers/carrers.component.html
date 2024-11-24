@@ -1,0 +1,109 @@
+
+
+
+
+<div *ngIf="areasConCarreras.length > 0 && !showTestWarning" class="area">
+  <h1>Tu Área recomendada:</h1>
+  <div *ngFor="let area of areasConCarreras">
+    <h2>{{ area.areaName }}</h2>  <!-- Muestra el nombre del área -->
+  </div>
+</div>
+
+<div class="content">
+    <img src="dashboard.jpg" alt="" class="img-dashboard">
+</div>
+
+<div *ngIf="showTestWarning" class="alert alert-warning">
+  <img src="cara.png" alt="">
+   <h1>Debes realizar primero el test para poder ver las carreras disponibles y ver los demás apartados.</h1> 
+    
+</div>
+<h1 *ngIf="!showTestWarning" class="title-comparacion">Comparación de Carreras</h1>
+
+
+
+
+
+<div *ngIf="!showTestWarning" class="filter-section">
+    <!-- Primera sección de carrera -->
+    <div class="filter">
+      <label for="ubicacion1">Elija la ubicación:</label>
+      <select id="ubicacion1" (change)="onUbicacion1Change($event)">
+        <option>Seleccionar Ubicación</option>
+        <option *ngFor="let ubicacion of ubicaciones" [value]="ubicacion.id">{{ ubicacion.city }}</option>
+      </select>
+    </div>
+  
+    <div class="filter">
+      <label for="carrera1">Elija la primera carrera:</label>
+      <select id="carrera1" (change)="onCarrera1Change($event)">
+        <option>Seleccionar Carrera</option>
+        <option *ngFor="let carrera of carrerasFilter1" [value]="carrera.id">{{ carrera.name }}</option>
+      </select>
+    </div>
+  
+    <!-- Segunda sección de carrera -->
+    <div class="filter">
+      <label for="ubicacion2">Elija la ubicación:</label>
+      <select id="ubicacion2" (change)="onUbicacion2Change($event)">
+        <option>Seleccionar Ubicación</option>
+        <option *ngFor="let ubicacion of ubicaciones" [value]="ubicacion.id">{{ ubicacion.city }}</option>
+      </select>
+    </div>
+  
+    <div class="filter">
+      <label for="carrera2">Elija la segunda carrera:</label>
+      <select id="carrera2" (change)="onCarrera2Change($event)">
+        <option>Seleccionar Carrera</option>
+        <option *ngFor="let carrera of carrerasFilter2" [value]="carrera.id">{{ carrera.name }}</option>
+      </select>
+    </div>
+  </div>
+
+<!-- Sección para mostrar la información de las carreras seleccionadas -->
+<div *ngIf="!showTestWarning" class="careers">
+    <!-- Información de la Primera Carrera -->
+    <div *ngIf="carreraSeleccionada1; else emptyCard1" class="card">
+        <h3>{{ carreraSeleccionada1.name }}</h3>
+        <img [src]="carreraSeleccionada1.img" alt="">
+        <p>{{ carreraSeleccionada1.description }}</p>
+        <p>Ubicación: {{ carreraSeleccionada1.location.city }}</p>
+        <p>Precio mensual: {{ carreraSeleccionada1.priceMonthly }}</p>
+    </div>
+    <ng-template #emptyCard1>
+        <div class="empty-card">Selecciona una carrera</div>
+    </ng-template>
+
+    <!-- Información de la Segunda Carrera -->
+    <div *ngIf="carreraSeleccionada2; else emptyCard2" class="card">
+        <h3>{{ carreraSeleccionada2.name }}</h3>
+        <img [src]="carreraSeleccionada2.img" alt="">
+        <p>{{ carreraSeleccionada2.description }}</p>
+        <p>Ubicación: {{ carreraSeleccionada2.location.city }}</p>
+        <p>Precio mensual: {{ carreraSeleccionada2.priceMonthly }}</p>
+    </div>
+    <ng-template #emptyCard2>
+        <div class="empty-card">Selecciona una carrera</div>
+    </ng-template>
+</div>
+
+ <!--
+<div class="filter-section">
+    <div class="filter">
+      <label for="city-filter">Filtrar por ciudad:</label>
+      <select id="ubicacion" (change)="onUbicacionChange($event)">
+        <option >Seleccionar ciudad</option>
+        <option *ngFor="let ubicacion of ubicaciones" [value]="ubicacion.id">{{ ubicacion.city }}</option>
+      </select>
+    </div>
+  </div>
+  
+  <div class="careers">
+    <div  *ngFor="let carreras of carrerasfilter" class="card">
+      
+      <h3>{{ carreras.name }}</h3>
+      <p>{{ carreras.description }}</p>
+      <p>{{carreras.priceMonthly}}</p>
+      <img src={{carreras.img}} alt="">
+    </div>
+  </div> -->

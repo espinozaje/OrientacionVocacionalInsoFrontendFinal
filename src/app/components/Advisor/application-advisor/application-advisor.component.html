@@ -1,0 +1,67 @@
+
+
+
+
+  <div class="login-container">
+    <img class="image-container" src="https://media-public.canva.com/S8xhg/MAFpOTS8xhg/1/s-1.svg" alt="login">
+    <div class="login-info-container">
+    <h1 class="tittle">Postula con nosotros para transformarte en asesor!</h1>
+    <form class="inputs-container" [formGroup]="emailForm" (ngSubmit)="onSubmit()" autocomplete="off">
+        <div>
+         
+            <input class="inputForm" id="nombre" formControlName="nombre" type="text" required autocomplete="off" placeholder="Nombre" />
+            <div *ngIf="emailForm.get('nombre')?.invalid && emailForm.get('nombre')?.touched" class="error-message">
+              Nombre es requerido
+            </div>
+          </div>
+            
+    
+          <div>
+           
+            <input class="inputForm" id="apellido" formControlName="apellido" type="text" required autocomplete="off" placeholder="Apellido"/>
+            <div *ngIf="emailForm.get('apellido')?.invalid && emailForm.get('apellido')?.touched" class="error-message">
+              Apellido es requerido
+            </div>
+          </div>
+            
+          <div>
+            
+            <input  class="inputForm" id="email" formControlName="email" type="email" required autocomplete="off" placeholder="Email" />
+            <div *ngIf="emailForm.get('email')?.invalid && emailForm.get('email')?.touched" class="error-message">
+              Email válido es requerido
+            </div>
+          </div>
+          <label for="archivo">CV o documento de experiencia (PDF):</label>
+          <div>
+            <input id="archivo" type="file" (change)="onFileSelected($event)" required />
+            <div *ngIf="!selectedFile && emailForm.get('archivo')?.touched" class="error-message">
+              Archivo es requerido
+            </div>
+          </div>
+          <button type="submit"  class="submitInfo" [disabled]="!emailForm.valid || !selectedFile || isLoading">
+            Enviar
+          </button>
+        
+      <div *ngIf="errorMessage" class="error-message">
+      {{ errorMessage }}
+      </div>
+      <a routerLink="/home"><span class="span">Regresar</span></a>
+    </form>
+    <div class="modal" *ngIf="showModal">
+        <div class="modal-content">
+          <div *ngIf="!isSuccessful">
+            <div class="loader"></div>
+            <p>Enviando tu solicitud...</p>
+          </div>
+          <div *ngIf="isSuccessful">
+            <div class="checkmark"></div>
+            <p>¡Tu solicitud se ha enviado exitosamente!</p>
+            <button class="cerracheckmark" (click)="closeModal()">Cerrar</button>
+          </div>
+        </div>
+      </div>
+    
+    </div>
+    </div>
+    
+    

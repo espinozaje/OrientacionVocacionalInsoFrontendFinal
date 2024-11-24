@@ -1,0 +1,182 @@
+.header {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: transparent;
+  
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+  
+      .logo {
+        max-width: 50px;
+      }
+  
+      .company-name {
+        font-family: 'Poppins', sans-serif;
+        font-size: 24px;
+        font-weight: bold;
+        color: white; // Cambié el color a blanco
+      }
+    }
+  }
+  
+  .plans-container {
+    font-family: 'Poppins', sans-serif;
+   
+    padding: 10px 20px; // Reducí el padding para subir el contenido
+    text-align: center;
+    color: white;
+    min-height: 100vh;
+  
+    .plans-title {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+  
+    .plans-description {
+      font-size: 16px;
+      max-width: 600px;
+      margin: 0 auto 20px auto;
+    }
+  
+    .plans {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      flex-wrap: wrap;
+  
+      .plan {
+        background-color: #ffffff;
+        color: #2d2a75;
+        border-radius: 10px;
+        padding: 20px;
+        width: 100%;
+        max-width: 230px;
+        margin: 10px;
+        text-align: left;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: 400px;
+  
+        h2 {
+          font-size: 22px;
+          margin-bottom: 5px;
+        }
+  
+        .price {
+          font-size: 22px;
+          color: #ff7f00;
+          margin-bottom: 15px;
+          font-weight: bold;
+        }
+  
+        ul {
+          list-style: none;
+          padding: 0;
+          margin-bottom: 15px;
+  
+          li {
+            font-size: 13px;
+            margin-bottom: 8px;
+            padding-left: 15px;
+            position: relative;
+  
+            &:before {
+              content: '-';
+              position: absolute;
+              left: 0;
+            }
+          }
+        }
+
+        .btn-selectgratis{
+          background-color: gray;
+          color: white;
+          border: none;
+          padding: 8px 15px;
+          border-radius: 30px;
+          transition: background-color 0.3s ease;
+        }
+  
+        .btn-select {
+          background-color: #ff7f00;
+          color: white;
+          border: none;
+          padding: 8px 15px;
+          border-radius: 30px;
+          cursor: pointer;
+          transition: background-color 0.3s ease;
+  
+          &:hover {
+            background-color: #d96c00;
+          }
+        }
+  
+        .plan-header {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 10px;
+  
+          h2 {
+            font-size: 22px;
+            margin-bottom: 0;
+          }
+  
+          .plan-logo {
+            max-width: 50px;
+            height: auto;
+          }
+        }
+      }
+  
+      .divider {
+        width: 1px;
+        background-color: rgba(255, 255, 255, 0.5);
+        margin: 20px 0;
+        height: auto;
+      }
+  
+      .premium {
+        background-color: #ff7f00;
+        color: white;
+        min-height: 400px;
+  
+        h2 {
+          color: white;
+        }
+  
+        .price {
+          color: white;
+        }
+  
+        .btn-select {
+          background-color: #ffffff;
+          color: #ff7f00;
+  
+          &:hover {
+            background-color: #e6e6e6;
+          }
+        }
+  
+        .plan-logo {
+          max-width: 50px;
+          height: auto;
+        }
+      }
+    }
+  
+    @media (min-width: 768px) {
+      .plans {
+        flex-wrap: nowrap;
+      }
+  
+      .plan {
+        width: 230px;
+      }
+    }
+  }

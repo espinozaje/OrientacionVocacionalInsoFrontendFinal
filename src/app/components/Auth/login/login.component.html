@@ -1,0 +1,84 @@
+
+	<div class="fondo">
+		<div class="login-container">
+			<img class="image-container" src="s-1.svg" alt="login">
+			<div class="login-info-container">
+				<h1 class="tittle">Bienvenido de nuevo!</h1>
+				
+				<form class="inputs-container" autocomplete="off">
+					<input 
+					
+					class="input" 
+					type="email" 
+					[(ngModel)]="email"
+					name="email"
+					placeholder="Correo electronico">
+					
+					<input 
+					
+					[(ngModel)]="password"
+					name="password"
+					  placeholder="Password" 
+					  type="password" 
+					  class="input">
+					  <div class="flex items-center absolute inset-y-0 right-0 mr-3  text-sm leading-5">
+					  </div>
+					  <button (click)="login()" class="btn" type="submit">Inicia sesion</button>
+					<p>Olvidaste tu contraseña? </p><a routerLink="/forgot-password">Recuperala aqui</a>
+					
+			<div *ngIf="errorMessage" class="error-message">
+			  {{ errorMessage }}
+			</div>
+
+			<!-- Modal de carga -->
+			<div *ngIf="isLoading" class="modal-overlay">
+				<div class="modal-content">
+				  <p>Cargando...</p>
+				  <div class="loader"></div>
+				</div>
+			  </div>
+			  
+			  <!-- Mensaje de éxito después de reenviar el código -->
+			  <div *ngIf="showSuccessMessage" class="success-message">
+				<p>¡Nuevo código de verificación enviado!</p>
+			  </div>
+			  
+			  <div *ngIf="!isEmailVerified && !isVerificationFormVisible" class="reenviar">
+				<p>¿No has verificado tu correo?</p>
+				<button (click)="resendVerificationCode()">Reenviar código de verificación</button>
+			  </div>
+			  
+			  <!-- Formulario de verificación de código -->
+			  <div *ngIf="isVerificationFormVisible" class="verification-form">
+				<p>Ingresa el código de verificación enviado a tu correo:</p>
+				<input
+				  type="text"
+				  [(ngModel)]="verificationCode"
+				  name="verificationCode"
+				  placeholder="Código de verificación"
+				  class="input"
+				/>
+				<button (click)="verifyCode()" class="btn">Verificar código</button>
+			  
+				<div *ngIf="verificationErrorMessage" class="error-message">
+				  {{ verificationErrorMessage }}
+				</div>
+  			</div>
+			
+			<p>No tienes cuenta? </p><a routerLink="/register"><span class="span">Registrate</span></a>
+			<a routerLink="/home"><span class="span">Regresar</span></a>	
+		</form>
+			</div>
+		</div>
+	
+	
+	</div>
+
+
+		
+
+
+
+
+
+

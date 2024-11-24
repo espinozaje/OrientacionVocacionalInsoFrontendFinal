@@ -1,0 +1,36 @@
+<div *ngIf="user" class="content">
+<h1>
+    Especialidad: {{ user.specialty }}
+</h1>
+
+<img src="dashboard.jpg" alt="" class="img-dashboard">
+
+
+
+
+<h1>Tus 3 Asesorias prontas</h1>
+<div *ngIf="advisories.length === 0" class="no-advisories-message">
+  <p>Aún no tienes asesorías programadas.</p>
+</div>
+<div *ngFor="let advisory of advisories" class="card">
+    <div class="image-container">
+      <p>Estudiante:</p>
+      <img *ngIf="advisory.student" [src]="advisory.student.img_profile" alt="Estudiante" class="profile-image" />
+      <p *ngIf="advisory.student" class="name"><a routerLink="/dashboard/student-profile/{{advisory.student.id}}">{{ advisory.student.firstName }} {{ advisory.student.lastName }}</a></p>
+      
+    </div>
+    <div class="info">
+      <p><strong>ID:</strong>  {{ advisory.id }}</p>
+      <p><strong>Tema:</strong> {{ advisory.name }}</p>
+      <p><strong>Fecha:</strong> {{ advisory.date | date }}</p>
+      <p><strong>Hora:</strong> {{ advisory.time }}</p>
+    </div>
+    
+    <div class="action-buttons">
+      <div class="actions">
+        <button class="join"><a href="{{ advisory.link }}" target="_blank">Iniciar</a></button>
+      </div>
+      
+    </div>
+  </div>
+</div>

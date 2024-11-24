@@ -1,0 +1,55 @@
+<div *ngIf="advisers.length === 0" class="no-students-message">
+    <p>Aún no cuentas con asesores, solicita una atención!</p>
+  </div>
+  
+  <div class="blog-card" *ngFor="let adviser of advisers">
+    <div class="meta">
+      <div class="photo" [style.background-image]="'url(' + adviser.img_profile + ')'"></div>
+    </div>
+    <div class="description">
+      <h1>ID: {{ adviser.id }}</h1>
+      <h2>{{ adviser.firstName }} {{adviser.lastName}}</h2>
+      <p> Correo: {{adviser.email}}</p>
+      <p class="read-more">
+        <a routerLink="/dashboard-student/adviser-profile/{{adviser.id}}">Ver Perfil</a>
+      </p>
+  
+      <p class="read-more">
+        <a [routerLink]="['/dashboard-student/chat', adviser.id]">Chatear</a>
+      </p>
+    </div>
+  </div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  

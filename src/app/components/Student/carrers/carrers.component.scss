@@ -1,0 +1,145 @@
+.title-comparacion{
+  text-align: center;
+}
+
+.alert{
+  text-align: center;
+  display: flex;
+  align-items: center;
+}
+
+.alert img{
+  height: 400px;
+  background: transparent;
+}
+
+.filter-section {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  
+    .filter {
+      flex: 1;
+      margin-right: 20px;
+  
+      &:last-child {
+        margin-right: 0;
+      }
+  
+      label {
+        display: block;
+        margin-bottom: 10px;
+        font-weight: bold;
+      }
+  
+      select {
+        width: 100%;
+        padding: 8px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+    }
+  }
+  
+  .careers {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  
+    .card {
+      flex: 1;
+      text-align: center;
+      margin-right: 20px;
+      color: black;
+      min-width: 45%; /* Forzamos que cada tarjeta ocupe aproximadamente la mitad del espacio disponible */
+      background-color: white; /* Fondo blanco */
+      border-radius: 10px; /* Bordes redondeados */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para la tarjeta */
+      padding: 20px; /* Espaciado interno */
+      transition: transform 0.3s ease; /* Efecto hover */
+  
+      &:hover {
+        transform: scale(1.05); /* Agrandar ligeramente en hover */
+      }
+  
+      &:last-child {
+        margin-right: 0;
+      }
+  
+      h3 {
+        margin-bottom: 10px;
+        font-size: 20px;
+        font-weight: bold;
+      }
+  
+      img {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        border-radius: 50%; /* Imagen redondeada */
+        border: 5px solid #141850; /* Borde de la imagen */
+      }
+    }
+  
+    .empty-card {
+      flex: 1;
+      min-width: 45%;
+      height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px dashed #ccc;
+    
+      text-align: center;
+    }
+  }
+  
+  /* Para las tarjetas de carreras */
+  .careers-section {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    padding: 2rem 5rem;
+    background-color: #141850;
+    color: white;
+  }
+  
+  .careers-section .card {
+    background-color: white;
+    color: #141850;
+    padding: 1.5rem;
+    border-radius: 10px;
+    text-align: center;
+    width: 35%; /* Ajustar para que cada tarjeta ocupe el 45% del ancho */
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .careers-section .card img {
+    max-width: 100%;
+    border-radius: 15px;
+    border: 5px solid #141850; /* Reaplicamos el borde */
+  }
+  
+  .careers-section .card h3 {
+    font-size: 1.5rem;
+    margin-top: 1rem;
+  }
+  
+  .careers-section .card p {
+    font-size: 1rem;
+    margin-top: 1rem;
+  }
+
+  .content{
+    text-align: center;
+}
+.img-dashboard{
+    width: 100%;
+    border-radius: 20px;
+}
+
+.area{
+  text-align: center;
+}

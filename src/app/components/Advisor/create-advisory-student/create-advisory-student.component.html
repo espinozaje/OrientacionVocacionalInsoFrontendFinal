@@ -1,0 +1,76 @@
+
+<section class="container-asesoria">
+  <h1>Crear Asesoria</h1>
+  <form [formGroup]="advisoryForm" (ngSubmit)="createAdvisory()" class="form">
+      <div class="input-box">
+          <label for="name">Nombre de la Asesoría</label>
+          <input id="name" formControlName="name" type="text" placeholder="Ingrese el nombre de la asesoría" required>
+      </div>
+
+      <div class="input-box">
+          <label for="link">Link</label>
+          <input id="link" formControlName="link" type="url" placeholder="Ingrese el enlace a la asesoría" required>
+      </div>
+
+      <div class="input-box">
+        <label for="date">Fecha</label>
+        <input
+          id="date"
+          formControlName="date"
+          type="date"
+          [min]="minDate"
+          (change)="onDateChange()"
+          required
+        >
+      </div>
+      
+      <div class="input-box">
+        <label for="time">Hora</label>
+        <input
+          id="time"
+          formControlName="time"
+          type="time"
+          [min]="minTime"
+          [disabled]="!isTimeEnabled"
+          required
+        >
+      </div>
+
+      <div class="select-box">
+          <label for="studentId">Estudiante</label>
+          <select id="studentId" formControlName="studentId">
+            <option *ngFor="let student of students" [value]="student.id">
+             {{student.id}} {{ student.firstName }} {{ student.lastName }}
+            </option>
+          </select>
+      </div>
+
+      <div class="form-group">
+        <button type="submit" [disabled]="advisoryForm.invalid" class="submit-btn">Crear</button>
+      </div>
+  </form>
+
+  <div class="overlay" *ngIf="isLoading || showConfirmation">
+    <div *ngIf="isLoading" class="spinner"></div>
+    <div *ngIf="showConfirmation" class="checkmark">
+      <div class="checkmark-circle"></div>
+      <div class="checkmark-stem"></div>
+      <div class="checkmark-kick"></div>
+    </div>
+    <p>{{ loadingMessage }}</p>
+  </div>
+  
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+

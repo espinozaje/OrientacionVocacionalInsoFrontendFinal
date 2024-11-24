@@ -1,0 +1,279 @@
+
+.no-advisories-message {
+  text-align: center;
+  font-size: 18px;
+  color: #555;
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.advisory-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  color: black;
+}
+
+.advisory-card {
+  border: 1px solid #ccc;
+  padding: 15px;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.reprogram-fields {
+  margin-top: 10px;
+  margin-right: 100px;
+  display: flex;
+  flex-direction: column;
+}
+
+.reprogram-fields label {
+  margin: 5px 0 2px;
+}
+
+.reprogram-fields input {
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.reprogram-fields button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.reprogram-fields button:hover {
+  background-color: #45a049;
+}
+
+.action-buttons {
+  margin-top: 10px;
+}
+
+
+.iniciar-btn{
+  background-color: #3498db;
+}
+
+.reprogram-btn {
+  background-color: #f1c40f;
+  
+  width: 100%;
+      border: none;
+      border-radius: 5px;
+      color: rgb(0, 0, 0);
+      padding: 10px 20px;
+      cursor: pointer;
+      font-size: 14px;
+      text-align: center;
+      transition: background-color 0.3s;
+}
+
+.cancel-btn {
+  background-color: #e74c3c;
+  width: 100%;
+      border: none;
+      border-radius: 5px;
+      color: rgb(0, 0, 0);
+      padding: 10px 20px;
+      cursor: pointer;
+      font-size: 14px;
+      text-align: center;
+      transition: background-color 0.3s;
+}
+
+.reprogram-btn:hover {
+  background-color: #f39c12;
+}
+
+.cancel-btn:hover {
+  background-color: #c0392b;
+}
+  
+  /* Modal de carga */
+  .loading-modal, .confirmation-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: #fff;
+  }
+  
+  .loading-spinner {
+    border: 8px solid #ddd;
+    border-top: 8px solid #3498db;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+
+  .advisory-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    color: black;
+  }
+  
+  .advisory-card {
+    border: 1px solid #ccc;
+    padding: 15px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+  }
+  
+  .reprogram-fields {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .reprogram-fields label {
+    margin: 5px 0 2px;
+  }
+  
+  .reprogram-fields input {
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .reprogram-fields button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .reprogram-fields button:hover {
+    background-color: #45a049;
+  }
+  
+  .action-buttons {
+    margin-top: 10px;
+  }
+  
+
+    
+    /* Modal de carga */
+    .loading-modal, .confirmation-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      color: #fff;
+    }
+    
+    .loading-spinner {
+      border: 8px solid #ddd;
+      border-top: 8px solid #3498db;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      animation: spin 1s linear infinite;
+    }
+    
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+
+
+    .card {
+      background-color: #1b2a59;
+      border-radius: 20px;
+      padding: 20px;
+      margin: 20px 0;
+      width: 100%;
+      
+      display: flex;
+      align-items: center;
+      justify-content: space-between; /* Espacia los elementos */
+      color: white;
+      box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.9);
+    }
+    
+    .image-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-left: 40px; /* Añade un margen izquierdo para alejar la imagen del borde */
+      margin-right: 40px; /* Mantiene un margen derecho para separar la imagen de la info */
+    }
+    
+    .profile-image {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #0d1545; /* Borde azul oscuro */
+    }
+    
+    .name {
+      font-size: 16px;
+      font-weight: bold;
+      margin-top: 10px;
+      text-align: center;
+    }
+    
+    .info {
+      flex: 1;
+      margin-left: 40px; /* Aumenta el margen izquierdo para mover el texto más a la derecha */
+      margin-right: 40px; /* Mantiene el margen derecho para separar el texto del botón */
+    }
+    
+    .actions {
+      padding-bottom: 10px;
+      
+      display: flex;
+      align-items: center;
+      margin-right: 60px; /* Aleja el botón del borde derecho */
+    }
+    
+    .join {
+      background-color: #00bfff;
+      width: 100%;
+      border: none;
+      border-radius: 5px;
+      color: white;
+      padding: 10px 20px;
+      cursor: pointer;
+      font-size: 14px;
+      text-align: center;
+      transition: background-color 0.3s;
+    }
+    
+    .join:hover {
+      background-color: #009acd; /* Efecto hover para el botón */
+    }

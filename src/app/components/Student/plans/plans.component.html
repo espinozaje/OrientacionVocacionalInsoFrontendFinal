@@ -1,0 +1,46 @@
+<div class="plans-container">
+  <h1 class="plans-title">Planes</h1>
+  <p class="plans-description">
+    Elige el plan que mejor se adapte a tus necesidades. Con el plan Free podrás acceder a funciones básicas, mientras que el plan Premium te ofrecerá un acompañamiento especializado y acceso a contenido exclusivo.
+  </p>
+
+  <div class="plans">
+    <!-- Plan FREE -->
+    <div class="plan free">
+      <h2>{{ freePlan.name || 'FREE' }}</h2> <!-- Nombre dinámico -->
+      <p class="price">{{ freePlan.price ? '$' + freePlan.price : 'GRATIS' }}</p> <!-- Precio dinámico -->
+      <ul>
+        <li> Acceso a contenido básico</li>
+        <li> Test Vocacional</li>
+        <li> Acceso a comparación de carreras</li>
+        <li> Crear y personalizar tu perfil</li>
+        <li> Acceso a la comunidad</li>
+        <li> Posibilidad de actualizar al plan Premium</li>
+      </ul>
+      <button class="btn-selectgratis" disabled>YA LO TIENES</button>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Plan PREMIUM -->
+    <div class="plan premium">
+      <div class="plan-header">
+        <h2>{{ premiumPlan.name || 'PREMIUM' }}</h2> <!-- Nombre dinámico -->
+        <img src="premium.png" alt="Plan logo" class="plan-logo">
+      </div>
+      <p class="price">${{ premiumPlan.price }}</p> <!-- Precio dinámico -->
+      <ul>
+        <li> Chat con asesores especializados</li>
+        <li> Test Vocacional</li>
+        <li> Acceso a comparación de carreras</li>
+        <li> Crear y personalizar tu perfil</li>
+        <li> Acceso a la comunidad</li>
+        <li> Asesoramiento en tiempo real con asesores capacitados</li>
+        <li> Acceso a contenido y recursos exclusivos</li>
+        <li> Asistencia personalizada y soporte prioritario</li>
+        <li> Análisis detallado de tus resultados</li>
+      </ul>
+      <button class="btn-select" (click)="selectPlan(premiumPlan)">SELECCIONAR PLAN</button>
+    </div>
+  </div>
+</div>

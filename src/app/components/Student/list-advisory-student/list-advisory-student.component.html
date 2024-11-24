@@ -1,0 +1,22 @@
+<div *ngIf="advisories.length === 0" class="no-advisories-message">
+  <p>Aún no tienes asesorías programadas.</p>
+</div>
+
+
+<div class="card" *ngFor="let advisory of advisories">
+  <div class="image-container">
+    <p>Asesor:</p>
+    <img *ngIf="advisory.adviser" [src]="advisory.adviser.img_profile" alt="Estudiante" class="profile-image" />
+    <p *ngIf="advisory.adviser" class="name">{{ advisory.adviser.firstName }} {{ advisory.adviser.lastName }}</p>
+  </div>
+  <div class="info">
+    <p><strong>ID:</strong>  {{ advisory.id }}</p>
+    <p><strong>Tema:</strong> {{ advisory.name }}</p>
+    <p><strong>Fecha:</strong> {{ advisory.date | date }}</p>
+    <p><strong>Hora:</strong> {{ advisory.time }}</p>
+  </div>
+  <div class="actions">
+    <button class="join"><a href="{{ advisory.link }}" target="_blank">Unirse</a></button>
+  </div>
+</div>
+

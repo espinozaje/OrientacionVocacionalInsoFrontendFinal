@@ -1,0 +1,185 @@
+.header {
+    background-color: #1a1b4b;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 40px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+  
+      .logo {
+        max-width: 50px;
+      }
+  
+      .company-name {
+        font-size: 24px;
+        font-weight: bold;
+        color: #ff7f00;
+      }
+    }
+  }
+  
+  .profile-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 30px;
+    padding: 40px;
+    width: 100%;
+    margin: 40px auto;
+    background: linear-gradient(135deg, #2d2a75 0%, #1a1b4b 100%);
+    border-radius: 15px;
+  
+    .profile-card {
+      text-align: center;
+      background-color: #222354;
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  
+      .profile-image {
+        width: 150px;
+        height: 150px;
+        border-radius: 10px;
+        object-fit: cover;
+        margin-bottom: 15px;
+      }
+  
+      h2 {
+        font-size: 26px;
+        color: #ff7f00;
+        margin: 10px 0;
+      }
+  
+      p {
+        font-size: 16px;
+        color: #b3b3ff;
+        margin-bottom: 5px;
+      }
+  
+      h3 {
+        font-size: 20px;
+        font-weight: bold;
+        color: #ffdf91;
+      }
+    }
+  
+    .profile-details {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background-color: #222354;
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  
+      .profile-info {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+  
+        .info-group {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          border-bottom: 1px solid #444;
+          padding: 10px 0;
+  
+          label {
+            font-size: 18px;
+            color: #ffdf91;
+          }
+  
+          .static-text {
+            font-size: 18px;
+            color: #b3b3ff;
+          }
+        }
+      }
+    }
+  
+    .horario-container {
+     
+      background-color: #222354;
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  
+      .horario-title {
+        font-size: 20px;
+        color: #ff7f00;
+        margin-bottom: 10px;
+      }
+  
+      .horario-escalera {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+  
+        .horario-item {
+          display: flex;
+          justify-content: space-between;
+          padding: 8px 15px;
+          background-color: #2d2a75;
+          border-radius: 5px;
+          color: #b3b3ff;
+          font-size: 16px;
+          margin-bottom: 10px;
+        }
+      }
+    }
+  }
+  
+  /* Media Queries para Responsividad */
+  @media (max-width: 1024px) {
+    .profile-container {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+  
+    .profile-card, .profile-details, .horario-container {
+      width: 100%;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .profile-container {
+      padding: 20px;
+    }
+  
+    .profile-card .profile-image {
+      width: 120px;
+      height: 120px;
+    }
+  
+    .profile-details .profile-info .info-group label,
+    .profile-details .profile-info .info-group .static-text,
+    .horario-container .horario-title,
+    .horario-container .horario-escalera .horario-item {
+      font-size: 14px;
+      
+    }
+
+    .horario-container{
+      width: 400px;
+    }
+  }
+
+  .back {
+    display: flex;
+    align-items: center;
+    color: white;
+    text-decoration: none; /* para quitar subrayado en el enlace */
+}
+
+.back .material-icons-sharp {
+    margin-right: 5px; /* Espacio entre el icono y el texto */
+}
+
+.back h3 {
+    margin: 0; /* Elimina cualquier margen adicional en el h3 */
+    font-weight: bold;
+}

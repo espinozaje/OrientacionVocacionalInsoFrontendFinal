@@ -1,0 +1,69 @@
+
+<div *ngIf="advisories.length === 0" class="no-advisories-message">
+  <p>Aún no tienes asesorías programadas</p>
+</div>
+
+
+<div *ngFor="let advisory of advisories" class="card">
+  <div class="image-container">
+    <p>Estudiante:</p>
+    <img *ngIf="advisory.student" [src]="advisory.student.img_profile" alt="Estudiante" class="profile-image" />
+    <p *ngIf="advisory.student" class="name">{{ advisory.student.firstName }} {{ advisory.student.lastName }}</p>
+  </div>
+    <div class="info">
+      <p><strong>ID:</strong>  {{ advisory.id }}</p>
+      <p><strong>Tema:</strong> {{ advisory.name }}</p>
+      <p><strong>Fecha:</strong> {{ advisory.date | date }}</p>
+      <p><strong>Hora:</strong> {{ advisory.time }}</p>
+    </div>
+    
+
+    <!-- Campos de reprogramación -->
+    <div *ngIf="selectedAdvisory?.id === advisory.id" class="reprogram-fields">
+      <label for="name">Nombre:</label>
+      <input id="name" [(ngModel)]="advisory.name" />
+      
+      <label for="link">Link:</label>
+      <input id="link" [(ngModel)]="advisory.link" />
+
+      <label for="date">Fecha:</label>
+<input 
+  id="date" 
+  [(ngModel)]="advisory.date" 
+  type="date" 
+  [min]="currentDate" 
+  (change)="onDateChange(advisory.date)" />
+
+<label for="time">Hora:</label>
+<input 
+  id="time" 
+  [(ngModel)]="advisory.time" 
+  type="time" 
+  [min]="minTime" 
+  [disabled]="disableTime" />
+
+      <button (click)="updateAdvisory(advisory)">Actualizar</button>
+    </div>
+
+    <div class="action-buttons">
+      <div class="actions">
+        <button class="join"><a href="{{ advisory.link }}" target="_blank">Unirse</a></button>
+      </div>
+      <div class="actions">
+        <button *ngIf="selectedAdvisory?.id !== advisory.id" (click)="onReprogram(advisory)" class="reprogram-btn">Reprogramar</button>
+      </div>
+      <div class="actions">
+        <button (click)="onCancel(advisory.id)" class="cancel-btn">Cancelar</button>
+      </div>
+      
+    </div>
+  </div>
+<div *ngIf="loading" class="loading-modal">
+  <div class="loading-spinner"></div>
+  <p>Procesando solicitud...</p>
+</div>
+
+
+<div *ngIf="confirmation" class="confirmation-modal">
+  <p>La solicitud se ha completado correctamente.</p>
+</div>

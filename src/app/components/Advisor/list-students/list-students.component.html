@@ -1,0 +1,39 @@
+<div *ngIf="students.length === 0" class="no-students-message">
+  <p>Aún no has aceptado estudiantes.</p>
+</div>
+
+<div class="blog-card" *ngFor="let student of students">
+  <div class="meta">
+    <div class="photo" [style.background-image]="'url(' + student.img_profile + ')'"></div>
+  </div>
+  <div class="description">
+    <h1>ID: {{ student.id }}</h1>
+    <h2>{{ student.firstName }} {{student.lastName}}</h2>
+    <p> Correo: {{student.email}}</p>
+    <p> Plan: {{ student.plan }}</p>
+    <p class="read-more">
+      <a routerLink="/dashboard/student-profile/{{student.id}}">Ver Perfil</a>
+    </p>
+
+    <p class="read-more">
+      <a [routerLink]="['/dashboard/chat', student.id]">Chatear</a>
+    </p>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

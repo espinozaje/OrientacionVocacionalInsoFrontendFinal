@@ -1,0 +1,239 @@
+.advisory-form {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2 {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  label {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333;
+    display: block;
+    margin-bottom: 8px;
+  }
+  
+  input, select, button {
+    width: 20%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  input:focus, select:focus, button:focus {
+    outline: none;
+    border-color: #3498db;
+  }
+  
+  button {
+    background-color: #141850;
+    color: white;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #0a0d35;
+  }
+  
+  button:disabled {
+    background-color: #ddd;
+    cursor: not-allowed;
+  }
+  
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .spinner {
+    border: 5px solid #f3f3f3; /* Light gray */
+    border-top: 5px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 2s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  .checkmark {
+    width: 70px; /* Aumentado para más espacio */
+    height: 70px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .checkmark-circle {
+    width: 60px;
+    height: 60px;
+    border: 5px solid #4CAF50;
+    border-radius: 50%;
+    animation: circle 0.6s ease-in-out forwards;
+  }
+  
+  .checkmark-stem {
+    position: absolute;
+    width: 5px;
+    height: 30px; /* Ajustado para que cubra mejor el tallo */
+    background-color: #4CAF50;
+    transform: rotate(45deg);
+    top: 19px; /* Ajuste para que esté dentro del círculo */
+    left: 36px;
+    animation: stem 0.6s ease-in-out forwards;
+    animation-delay: 0.2s; /* Sincronización con la animación del círculo */
+  }
+  
+  .checkmark-kick {
+    position: absolute;
+    width: 12px;
+    height: 5px;
+    background-color: #4CAF50;
+    transform: rotate(45deg);
+    top: 40px; /* Ajustado para alinearse bien con el tallo */
+    left: 20px; /* Ajustado para alinearse mejor */
+    animation: kick 0.6s ease-in-out forwards;
+    animation-delay: 0.3s; /* Sincronización con la animación del círculo */
+  }
+  
+  @keyframes circle {
+    0% { transform: scale(0); }
+    100% { transform: scale(1); }
+  }
+  
+  @keyframes stem {
+    0% { transform: rotate(45deg); opacity: 0; }
+    100% { transform: rotate(45deg); opacity: 1; }
+  }
+  
+  @keyframes kick {
+    0% { transform: rotate(45deg); opacity: 0; }
+    100% { transform: rotate(45deg); opacity: 1; }
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .advisory-form {
+      padding: 15px;
+    }
+  
+    h2 {
+      font-size: 1.3rem;
+    }
+  
+    label {
+      font-size: 0.9rem;
+    }
+  
+    input, select, button {
+      font-size: 0.9rem;
+    }
+  }
+  
+
+  .container-asesoria {
+    position: relative;
+    top: 90px;
+    width: 100%;
+    background: var(--orange-color);
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 0 15px rgb(1, 1, 1, 3);
+    
+}
+
+.container-asesoria header {
+    font-weight: 800;
+    font-size: 1.5rem;
+    text-align: left;
+}
+
+.container-asesoria .form {
+    margin-top: 30px;
+}
+
+.form .input-box {
+    width: 100%;
+    margin: 20px;     
+}
+
+.input-box label {
+    font-size: 1.2rem;
+}
+
+.form .input-box input {
+    position: relative;
+    font-family: poppins;
+    height: 50px;
+    width: 95%;
+    outline: none;
+    font-size: 1rem;
+    color: #707070;
+    margin-top: 8px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 0 15px;
+}
+
+.form .column {
+    display: flex;
+    column-gap: 15px;
+}
+
+.form .select-box {
+    width: 100%;
+    margin: 20px; 
+}
+
+.form .select-box label {
+    font-size: 1.2rem;
+}
+
+.form .select-box select {
+    width: 95%;
+    height: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    margin-top: 8px;
+    font-family: poppins;
+    border: 1px solid #ddd;
+}
+
+@media screen and (max-width: 500px) {
+    .form .column {
+        flex-wrap: wrap;
+    }
+}
