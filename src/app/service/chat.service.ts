@@ -19,7 +19,7 @@ export class ChatService {
 
   initConnectionSocket(){
 
-    const url =  '//orientacionvocacionalapinsofinal-inso.up.railway.app/api/v1/chat-socket'
+    const url =  'https://orientacionvocacionalapinsofinal-inso.up.railway.app/api/v1/chat-socket'
     const socket = new SockJS(url);
     this.stompClient = Stomp.over(socket);
   }
