@@ -37,14 +37,16 @@ export const routes: Routes = [
     {
       path: 'login',
       title: 'Iniciar Sesion',
-      component: LoginComponent,
-      canActivate: [authenticatedGuard]
+      canActivate: [authenticatedGuard],
+      loadComponent: () => import('./components/Auth/login/login.component').then(m => m.LoginComponent),
+
     },
     {
       path: 'register',
       title: 'Registrarse',
-      component: RegisterComponent,
-      canActivate: [authenticatedGuard]
+      canActivate: [authenticatedGuard],
+      loadComponent: () => import('./components/Auth/register/register.component').then(m => m.RegisterComponent),
+
     },
     {
       path: 'forgot-password',
@@ -61,7 +63,7 @@ export const routes: Routes = [
     {
       path: 'application-advisor',
       title: 'Aplicación a asesor',
-      component: ApplicationAdvisorComponent,
+      loadComponent: () => import('./components/Advisor/application-advisor/application-advisor.component').then(m => m.ApplicationAdvisorComponent),
       canActivate: [authenticatedGuard]
     },
   
@@ -70,48 +72,46 @@ export const routes: Routes = [
     {
       path: 'dashboard-student',
       title: 'Dashboard Student',
-      loadChildren: () => import('./components/Student/dashboard-premium/dashboard-premium.component').then(m => m.DashboardPremiumComponent),
-      component: DashboardPremiumComponent,
+      loadComponent: () => import('./components/Student/dashboard-premium/dashboard-premium.component').then(m => m.DashboardPremiumComponent),
+
       canActivate: [studentGuardGuard] ,
       children:[
         {
           path: '',
           title: 'Dashboard Student',
-          component: CarrersComponent
-         
+          loadComponent: () => import('./components/Student/carrers/carrers.component').then(m => m.CarrersComponent)
         },
         
         {
           path: 'profile-student',
           title: 'Profile Student',
-          component: ProfileStudentComponent
-        
+          loadComponent: () => import('./components/Student/profile-student/profile-student.component').then(m => m.ProfileStudentComponent),
         },
         {
           path: 'list-advisories',
           title: 'Asesorias',
-          component: ListAdvisoryStudentComponent
+           loadComponent: () => import('./components/Student/list-advisory-student/list-advisory-student.component').then(m => m.ListAdvisoryStudentComponent),
         },
         {
           path: 'advisors',
           title: 'Asesores',
-          component: ListAdvisorsComponent
+           loadComponent: () => import('./components/Student/list-advisors/list-advisors.component').then(m => m.ListAdvisorsComponent),
         },
         {
           path: 'my-advisors',
           title: 'Mis Asesores',
-          component: MyAdvisorsComponent
+          loadComponent: () => import('./components/Student/my-advisors/my-advisors.component').then(m => m.MyAdvisorsComponent)
         },
         {
           path: 'adviser-profile/:id',
           title: 'Perfil Asesor',
-          component: ShowProfileAdviserComponent
+          loadComponent: () => import('./components/Student/show-profile-adviser/show-profile-adviser.component').then(m => m.ShowProfileAdviserComponent)
         },
 
         {
           path: 'chat/:userId',
           title: 'Chat',
-          component: ChatComponent
+          loadComponent: () => import('./components/Chat/chat.component').then(m => m.ChatComponent)
         },
       ]
     },
@@ -120,35 +120,34 @@ export const routes: Routes = [
     {
       path: 'dashboard-student-free',
       title: 'Dashboard Student',
-      loadChildren: () => import('./components/Student/dashboard-free/dashboard-free.component').then(m => m.DashboardFreeComponent),
-      component: DashboardFreeComponent,
+      loadComponent: () => import('./components/Student/dashboard-free/dashboard-free.component').then(m => m.DashboardFreeComponent),
       canActivate: [studentFreeGuard],
       children:[
         {
           path: '',
           title: 'Dashboard Student',
-          component: CarrersComponent
+          loadComponent: () => import('./components/Student/carrers/carrers.component').then(m => m.CarrersComponent)
         },
         {
           path: 'plans',
           title: 'Planes',
-          component: PlansComponent
+          loadComponent: () => import('./components/Student/plans/plans.component').then(m => m.PlansComponent)
         },
         {
           path: 'profile-student',
           title: 'Profile Student',
-          component: ProfileStudentComponent
+          loadComponent: () => import('./components/Student/profile-student/profile-student.component').then(m => m.ProfileStudentComponent)
         },
         {
           path: 'advisors',
           title: 'Asesores',
-          component: ListAdvisorsFreeComponent
+          loadComponent: () => import('./components/Student/list-advisors-free/list-advisors-free.component').then(m => m.ListAdvisorsFreeComponent)
         },
 
         {
           path: 'adviser-profile/:id',
           title: 'Perfil Asesor',
-          component: ShowProfileAdviserComponent
+          loadComponent: () => import('./components/Student/show-profile-adviser/show-profile-adviser.component').then(m => m.ShowProfileAdviserComponent)
         },
       ]
     },
@@ -164,16 +163,14 @@ export const routes: Routes = [
     {
       path: 'test-vocationalp',
       title: 'Test Vocacional',
-      loadChildren: () => import('./components/vocational-test/vocational-test.component').then(m => m.VocationalTestComponent),
-      component: VocationalTestComponent,
+      loadComponent: () => import('./components/vocational-test/vocational-test.component').then(m => m.VocationalTestComponent),
       canActivate: [studentGuardGuard]
     },
 
     {
       path: 'test-vocationalf',
       title: 'Test Vocacional',
-      component: VocationalTestComponent,
-      loadChildren: () => import('./components/vocational-test/vocational-test.component').then(m => m.VocationalTestComponent),
+      loadComponent: () => import('./components/vocational-test/vocational-test.component').then(m => m.VocationalTestComponent),
       canActivate: [studentFreeGuard]
     },
 
@@ -182,54 +179,54 @@ export const routes: Routes = [
     {
       path: 'dashboard',
       title: 'Dashboard Advisor',
-      component: PagePrincipalComponent,
-      loadChildren: () => import('./components/Advisor/dashboard-advisor/dashboard-advisor.component').then(m => m.DashboardAdvisorComponent),
+
+      loadComponent: () => import('./components/Advisor/page-principal/page-principal.component').then(m => m.PagePrincipalComponent),
       canActivate: [advisorGuardGuard],
       children: [
         {
           path: 'advisor',
           title: 'Dashboard Advisor',
-          component: DashboardAdvisorComponent
+
+          loadComponent: () => import('./components/Advisor/dashboard-advisor/dashboard-advisor.component').then(m => m.DashboardAdvisorComponent)
         },
         {
           path: 'change-password',
-          component: ChangePasswordFirstloginComponent,
-     
+          loadComponent: () => import('./components/change-password-firstlogin/change-password-firstlogin.component').then(m => m.ChangePasswordFirstloginComponent)
         },
         {
           path: 'list-student',
           title: 'Students',
-          component: ListStudentsComponent
+          loadComponent: () => import('./components/Advisor/list-students/list-students.component').then(m => m.ListStudentsComponent)
         },
         {
           path: 'all-students',
           title: 'Estudiantes',
-          component: AllStudentsComponent
+          loadComponent: () => import('./components/Advisor/all-students/all-students.component').then(m => m.AllStudentsComponent)
         },
         {
           path: 'create-advisory-student',
           title: 'Create Advisory',
-          component: CreateAdvisoryStudentComponent
+          loadComponent: () => import('./components/Advisor/create-advisory-student/create-advisory-student.component').then(m => m.CreateAdvisoryStudentComponent)
         },
         {
           path: 'list-advisories',
           title: 'Advisories',
-          component: ListAdvisoryAdvisorComponent
+          loadComponent: () => import('./components/Advisor/list-advisory-advisor/list-advisory-advisor.component').then(m => m.ListAdvisoryAdvisorComponent)
         },
         {
           path: 'profile-advisor',
           title: 'Profile Advisor',
-          component: ProfileAdvisorComponent
+          loadComponent: () => import('./components/Advisor/profile-advisor/profile-advisor.component').then(m => m.ProfileAdvisorComponent)
         },
         {
           path: 'student-profile/:id',
           title: 'Perfil Estudiante',
-          component: ShowProfileStudentComponent
+          loadComponent: () => import('./components/Advisor/show-profile-student/show-profile-student.component').then(m => m.ShowProfileStudentComponent)
         },
         {
           path: 'chat/:userId',
           title: 'Chat',
-          component: ChatComponent
+          loadComponent: () => import('./components/Chat/chat.component').then(m => m.ChatComponent)
         }
         
       ]
@@ -244,7 +241,7 @@ export const routes: Routes = [
     {
       path: 'home',
       title: 'Home',
-      component: HomePageComponent,
+      loadComponent: () => import('./components/home-page/home-page.component').then(m => m.HomePageComponent),
       canActivate: [authenticatedGuard]
     }
   ];
