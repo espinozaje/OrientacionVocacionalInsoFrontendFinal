@@ -19,7 +19,7 @@ export class ChatService {
 
   initConnectionSocket(){
 
-    const url =  '//localhost:8080/api/v1/chat-socket'
+    const url =  '//orientacion-vocacional.vercel.app:8080/api/v1/chat-socket'
     const socket = new SockJS(url);
     this.stompClient = Stomp.over(socket);
   }
