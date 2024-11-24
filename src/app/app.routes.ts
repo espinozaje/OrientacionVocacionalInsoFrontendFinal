@@ -1,5 +1,4 @@
 import { Routes } from '@angular/router';
-import { authGuard } from './authentication/guards/auth.guard';
 import { authenticatedGuard } from './authentication/guards/authenticated.guard';
 import { LoginComponent } from './components/Auth/login/login.component';
 import { VocationalTestComponent } from './components/vocational-test/vocational-test.component';
@@ -66,15 +65,12 @@ export const routes: Routes = [
       canActivate: [authenticatedGuard]
     },
   
-    {
-      path: 'chat/:userId',
-      title: 'Chat',
-      component: ChatComponent
-    },
+    
     
     {
       path: 'dashboard-student',
       title: 'Dashboard Student',
+      loadChildren: () => import('./components/Student/dashboard-premium/dashboard-premium.component').then(m => m.DashboardPremiumComponent),
       component: DashboardPremiumComponent,
       canActivate: [studentGuardGuard] ,
       children:[
@@ -124,6 +120,7 @@ export const routes: Routes = [
     {
       path: 'dashboard-student-free',
       title: 'Dashboard Student',
+      loadChildren: () => import('./components/Student/dashboard-free/dashboard-free.component').then(m => m.DashboardFreeComponent),
       component: DashboardFreeComponent,
       canActivate: [studentFreeGuard],
       children:[
@@ -155,6 +152,8 @@ export const routes: Routes = [
         },
       ]
     },
+
+
     {
       path: 'success',
       title: 'Payment Succes',
@@ -165,6 +164,7 @@ export const routes: Routes = [
     {
       path: 'test-vocationalp',
       title: 'Test Vocacional',
+      loadChildren: () => import('./components/vocational-test/vocational-test.component').then(m => m.VocationalTestComponent),
       component: VocationalTestComponent,
       canActivate: [studentGuardGuard]
     },
@@ -173,6 +173,7 @@ export const routes: Routes = [
       path: 'test-vocationalf',
       title: 'Test Vocacional',
       component: VocationalTestComponent,
+      loadChildren: () => import('./components/vocational-test/vocational-test.component').then(m => m.VocationalTestComponent),
       canActivate: [studentFreeGuard]
     },
 
@@ -182,6 +183,7 @@ export const routes: Routes = [
       path: 'dashboard',
       title: 'Dashboard Advisor',
       component: PagePrincipalComponent,
+      loadChildren: () => import('./components/Advisor/dashboard-advisor/dashboard-advisor.component').then(m => m.DashboardAdvisorComponent),
       canActivate: [advisorGuardGuard],
       children: [
         {
