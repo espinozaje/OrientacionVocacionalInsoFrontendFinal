@@ -17,7 +17,7 @@ export class RegisterComponent {
   verificationCode = '';
   verificationError = '';
   showLoadingModal = false;
-  isLoading = false; // Nueva variable para controlar el modal de carga
+  isLoading = false; 
 
   @ViewChild('registerForm') registerForm!: NgForm;
 
@@ -27,15 +27,14 @@ export class RegisterComponent {
     if (form.valid) {
       const { firstName, lastName, email, password } = form.value;
   
-      // Mostrar el modal de carga antes de hacer la solicitud
       this.showLoadingModal = true;
   
-      // Llamada al servicio para registrar al usuario
+     
       this.auth.registerStudent({ firstName, lastName, email, password }).subscribe(
         (response: any) => {
           
           
-          // Ocultar el modal de carga una vez se haya procesado el registro
+         
           this.showLoadingModal = false;
   
           // Ahora, mostrar el modal para ingresar el código de verificación

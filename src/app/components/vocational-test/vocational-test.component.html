@@ -40,17 +40,14 @@
     </div>
   </div>
 
-  <!-- Mostrar el resultado del test cuando todas las preguntas hayan sido respondidas -->
-  <ng-template #showResult>
-    <div class="result-card">
-      <h3>Resultado del Test Vocacional</h3>
-      <p>Área recomendada: <strong>{{ testResult.area || 'No se pudo determinar el área' }}</strong></p>
-      <ul>
-        <li *ngFor="let carrera of testResult.careers">{{ carrera }}</li>
-      </ul>
+
+  <div class="overlay" *ngIf="isLoading || showConfirmation">
+    <div *ngIf="isLoading" class="spinner"></div>
+    <div *ngIf="showConfirmation" class="checkmark">
+      <div class="checkmark-circle"></div>
+      <div class="checkmark-stem"></div>
+      <div class="checkmark-kick"></div>
     </div>
-    <button class="btn btn-interes">
-      <a routerLink="/pageprincipal">Volver al inicio</a>
-    </button>
-  </ng-template>
+    <p>{{ loadingMessage }}</p>
+  </div>
 </div>

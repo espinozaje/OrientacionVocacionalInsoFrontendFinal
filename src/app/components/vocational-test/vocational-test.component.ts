@@ -22,6 +22,8 @@ export class VocationalTestComponent implements OnInit {
   loading: boolean = true;
   testResult: any = null;
   errorMessage: string = '';
+  isLoading: boolean = false; // Controla el spinner
+  showConfirmation: boolean = false; // Controla la marca de verificación
   
   constructor(
     private vocationalTestService: VocationalTestService,
@@ -70,17 +72,21 @@ export class VocationalTestComponent implements OnInit {
         selectedOption: question.selectedOption,
       })),
     };
-    console.log(test)
-
+    this.isLoading = true;
     this.vocationalTestService.submitTestRegister(test).subscribe({
       next: (response) => {
+        this.isLoading = false;
+        this.showConfirmation = true;
         this.testResult = response;
-        // Muestra el resultado al usuario
-        alert(`${this.testResult.area || 'No se pudo determinar el área'}`);
-        this.resetTest();
-        this.router.navigate(['/page-principal']);
+        setTimeout(() => {
+          this.showConfirmation = false;
+          alert(`${this.testResult.area || 'No se pudo determinar el área'}`);
+          this.resetTest();
+          this.router.navigate(['/page-principal']);
+      }, 2000);
       },
       error: (error) => {
+        this.isLoading = false;
         this.errorMessage = 'Error al enviar el test. Inténtalo de nuevo.';
         alert(this.errorMessage);  // Mostrar el error como alerta
         console.error(error);
