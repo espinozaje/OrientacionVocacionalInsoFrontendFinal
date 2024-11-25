@@ -84,7 +84,7 @@ export const routes: Routes = [
         {
           path: '',
           title: 'Dashboard Student',
-          component: CarrersComponent,
+          loadComponent: () => import('./components/Student/carrers/carrers.component').then(m => m.CarrersComponent)
         },
         {
           path: 'articles',
@@ -120,7 +120,7 @@ export const routes: Routes = [
         {
           path: 'chat/:userId',
           title: 'Chat',
-          component: ChatComponent
+          loadComponent: () => import('./components/Chat/chat.component').then(m => m.ChatComponent)
         },
       ]
     },
@@ -135,7 +135,7 @@ export const routes: Routes = [
         {
           path: '',
           title: 'Dashboard Student',
-          component: CarrersComponent,
+          loadComponent: () => import('./components/Student/carrers/carrers.component').then(m => m.CarrersComponent)
         },
         {
           path: 'plans',
@@ -205,7 +205,7 @@ export const routes: Routes = [
         },
         {
           path: 'change-password',
-          component: ChangePasswordFirstloginComponent,
+          loadComponent: () => import('./components/change-password-firstlogin/change-password-firstlogin.component').then(m => m.ChangePasswordFirstloginComponent)
         },
         {
           path: 'list-student',
@@ -240,7 +240,7 @@ export const routes: Routes = [
         {
           path: 'chat/:userId',
           title: 'Chat',
-          component: ChatComponent
+          loadComponent: () => import('./components/Chat/chat.component').then(m => m.ChatComponent)
         }
         
       ]
