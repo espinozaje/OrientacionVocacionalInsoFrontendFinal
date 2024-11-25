@@ -1,0 +1,107 @@
+<div class="login-container">
+    <div class="login-info-container">
+    <h1 class="tittle">Registra a un asesor!</h1>
+    <form class="inputs-container" (ngSubmit)="onSubmit(registerForm)" #registerForm="ngForm" autocomplete="off">
+            <div class="form-group">
+              <input 
+              class="input" 
+              type="text"
+              id="firstName"
+              name="firstName"
+              ngModel
+              required
+              #firstName="ngModel"
+              [ngClass]="{ 'is-invalid': firstName.invalid && firstName.touched }"
+              placeholder="Nombre">
+              <div *ngIf="firstName.invalid && firstName.touched" class="invalid-feedback">
+                El nombre es requerido.
+              </div>
+            </div>
+            
+    
+            <div class="form-group">
+              <input 
+              class="input" 
+              type="text"
+              id="lastName"
+              name="lastName"
+              ngModel
+              required
+              #lastName="ngModel"
+              [ngClass]="{ 'is-invalid': lastName.invalid && lastName.touched }"
+              placeholder="Apellido">
+              <div *ngIf="firstName.invalid && firstName.touched" class="invalid-feedback">
+                El nombre es requerido.
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <input 
+              class="input" 
+              type="email"
+              id="email"
+              name="email"
+              ngModel
+              required
+              email
+              #email="ngModel"
+              [ngClass]="{ 'is-invalid': email.invalid && email.touched }"
+              placeholder="Correo electronico">
+              <div *ngIf="email.invalid && email.touched" class="invalid-feedback">
+                Email es requerido y debe ser válido.
+              </div>
+    
+            </div>
+    
+            <div class="form-group">
+              <input
+                class="input"
+                type="password"
+                id="password"
+                name="password"
+                ngModel
+                required
+                minlength="6"
+                #password="ngModel"
+                [ngClass]="{ 'is-invalid': password.invalid && password.touched }"
+                placeholder="Contraseña"
+              >
+              <div>
+                <div *ngIf="password.errors?.['required'] && password.touched" class="error-message">
+                  La contraseña es obligatoria.
+                </div>
+                <div *ngIf="password.errors?.['minlength'] && password.touched" class="error-message">
+                  La contraseña debe tener al menos 6 caracteres.
+                </div>
+              </div>
+            </div>
+
+
+            <div class="form-group">
+              <input
+                class="input"
+                type="text"
+                id="specialty"
+                name="specialty"
+                ngModel
+                required
+                #specialty="ngModel"
+                [ngClass]="{ 'is-invalid': specialty.invalid && specialty.touched }"
+                placeholder="Especialidad"
+              >
+              <div>
+                <div *ngIf="specialty.errors?.['required'] && specialty.touched" class="error-message">
+                  La Especialidad es obligatoria.
+                </div>
+              </div>
+            </div>
+             
+      <button class="btn" type="submit" [disabled]="registerForm.invalid">Registrar Asesor</button>
+      <div *ngIf="errorMessage" class="error-message">
+      {{ errorMessage }}
+      </div>
+    </form>
+    </div>
+    </div>
+    
+    

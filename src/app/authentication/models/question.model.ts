@@ -82,6 +82,15 @@ export interface Adviser{
   solicitationStatus: string; 
 }
 
+export interface Admin{
+  id?: number;
+  img_profile?: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  password?: string;
+}
+
 export interface LoginResponse {
   message: string;
   token: string;

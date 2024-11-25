@@ -23,6 +23,13 @@ export class AuthService {
     );
   }
 
+
+  registerAdviser(requestBody: any): Observable<any> {
+    return this.http.post(`${this.apiUrl}/registerAdviser`, requestBody).pipe(
+      catchError(this.handleError)
+    );
+  }
+
   getAdvisorById(id: string): Observable<any> {
     const token = localStorage.getItem(this.tokenKey); 
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
@@ -131,7 +138,17 @@ login(email: string, password: string, callback: (token: string) => void):  Obse
             
             this.router.navigate(['/dashboard/advisor']);
           }
-        } else if (userRole === 'STUDENT') {
+        } else if (userRole === 'ADMIN') {
+         
+          if (response.requiresPasswordChange) {
+           
+            this.router.navigate(['/dashboard-admin/change-password']);
+          } else {
+            
+            this.router.navigate(['/dashboard-admin/register-advisor']);
+          }
+        }
+         else if (userRole === 'STUDENT') {
           
           this.router.navigate(['/dashboard-student']);
         } else {
@@ -147,6 +164,14 @@ changePassword(email: string, newPassword: string): Observable<any> {
     .set('newPassword', newPassword);
 
   return this.http.post<any>(`${this.apiUrl}/change-password`, null, { params });
+}
+
+changePasswordAdmin(email: string, newPassword: string): Observable<any> {
+  const params = new HttpParams()
+    .set('email', email)
+    .set('newPassword', newPassword);
+
+  return this.http.post<any>(`${this.apiUrl}/change-password-admin`, null, { params });
 }
 
 getRoleFromToken(): string | null {

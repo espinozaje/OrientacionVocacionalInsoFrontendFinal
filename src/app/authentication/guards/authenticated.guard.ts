@@ -13,6 +13,9 @@ export const authenticatedGuard: CanActivateFn = (route, state) => {
     if (role === 'ADVISER') {
       router.navigate(['/dashboard/advisor']);
       return false; // Opción 1: Redirige pero no avanza
+    }else if (role === 'ADMIN') {
+      router.navigate(['/dashboard-admin/register-advisor']);
+      return false;
     } else if (role === 'STUDENT' && plan === 'PREMIUM') {
       router.navigate(['/dashboard-student']);
       return false;

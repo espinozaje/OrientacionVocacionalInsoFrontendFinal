@@ -29,8 +29,14 @@ import { PlansComponent } from './components/Student/plans/plans.component';
 import { PaymentSuccessComponent } from './components/payment-success/payment-success.component';
 import { studentFreeGuard } from './authentication/guards/student-free.guard';
 import { ListAdvisorsFreeComponent } from './components/Student/list-advisors-free/list-advisors-free.component';
-import { AllStudentsComponent } from './components/Advisor/all-students/all-students.component';
 import { MyAdvisorsComponent } from './components/Student/my-advisors/my-advisors.component';
+import { DashboardAdminComponent } from './components/Admin/dashboard-admin/dashboard-admin.component';
+import { RegisterAdvisorComponent } from './components/Admin/register-advisor/register-advisor.component';
+import { adminGuard } from './authentication/guards/admin.guard';
+import { ChangePasswordAdminComponent } from './components/Admin/change-password-admin/change-password-admin.component';
+import { ProfileAdminComponent } from './components/Admin/profile-admin/profile-admin.component';
+import { AllAdvisorsComponent } from './components/Admin/all-advisors/all-advisors.component';
+import { AllStudentsComponent } from './components/Admin/all-students/all-students.component';
 // routes.ts
 export const routes: Routes = [
     // Rutas sin autenticación
@@ -80,7 +86,11 @@ export const routes: Routes = [
           title: 'Dashboard Student',
           component: CarrersComponent,
         },
-        
+        {
+          path: 'articles',
+          title: 'Artículos',
+          loadComponent: () => import('./components/Student/articles-premium/articles-premium.component').then(m => m.ArticlesPremiumComponent)
+        },
         {
           path: 'profile-student',
           title: 'Profile Student',
@@ -131,6 +141,11 @@ export const routes: Routes = [
           path: 'plans',
           title: 'Planes',
           loadComponent: () => import('./components/Student/plans/plans.component').then(m => m.PlansComponent)
+        },
+        {
+          path: 'articles',
+          title: 'Artículos',
+          loadComponent: () => import('./components/Student/articles/articles.component').then(m => m.ArticlesComponent)
         },
         {
           path: 'profile-student',
@@ -190,7 +205,7 @@ export const routes: Routes = [
         },
         {
           path: 'change-password',
-          loadComponent: () => import('./components/change-password-firstlogin/change-password-firstlogin.component').then(m => m.ChangePasswordFirstloginComponent)
+          component: ChangePasswordFirstloginComponent,
         },
         {
           path: 'list-student',
@@ -231,8 +246,50 @@ export const routes: Routes = [
       ]
     },
 
-  
-    // Ruta por defecto y redireccionamiento
+
+    {
+      path: 'dashboard-admin',
+      title: 'Dashboard Admin',
+      loadComponent: () => import('./components/Admin/dashboard-admin/dashboard-admin.component').then(m => m.DashboardAdminComponent),
+      canActivate: [adminGuard],
+      children: [
+        {
+          path: 'register-advisor',
+          title: 'Register Advisor',
+          loadComponent: () => import('./components/Admin/register-advisor/register-advisor.component').then(m => m.RegisterAdvisorComponent)
+        },
+        {
+          path: 'change-password',
+          component: ChangePasswordAdminComponent,
+        },
+        {
+          path: 'all-advisors',
+          title: 'Asesores',
+           loadComponent: () => import('./components/Admin/all-advisors/all-advisors.component').then(m => m.AllAdvisorsComponent)
+        },
+        {
+          path: 'all-students',
+          title: 'Estudiantes',
+          loadComponent: () => import('./components/Admin/all-students/all-students.component').then(m => m.AllStudentsComponent)
+        },
+        {
+          path: 'adviser-profile/:id',
+          title: 'Perfil Asesor',
+          loadComponent: () => import('./components/Student/show-profile-adviser/show-profile-adviser.component').then(m => m.ShowProfileAdviserComponent)
+        },
+        {
+          path: 'student-profile/:id',
+          title: 'Perfil Estudiante',
+          loadComponent: () => import('./components/Advisor/show-profile-student/show-profile-student.component').then(m => m.ShowProfileStudentComponent)
+        },
+        {
+          path: 'profile-admin',
+          title: 'Profile Advisor',
+          loadComponent: () => import('./components/Admin/profile-admin/profile-admin.component').then(m => m.ProfileAdminComponent)
+        },
+      ]
+    },
+
     {
       path: '**',
       redirectTo: 'home'
