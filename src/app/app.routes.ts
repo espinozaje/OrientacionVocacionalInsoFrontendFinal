@@ -94,7 +94,7 @@ export const routes: Routes = [
         {
           path: 'profile-student',
           title: 'Profile Student',
-          loadComponent: () => import('./components/Student/profile-student/profile-student.component').then(m => m.ProfileStudentComponent),
+          loadComponent: () => import('./components/Student/profile-student-premium/profile-student-premium.component').then(m => m.ProfileStudentPremiumComponent),
         },
         {
           path: 'list-advisories',

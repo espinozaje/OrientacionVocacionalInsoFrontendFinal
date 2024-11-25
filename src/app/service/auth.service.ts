@@ -16,6 +16,9 @@ export class AuthService {
   constructor(private http: HttpClient, private router: Router) { }
 
 
+  cancelPlan(studentId: number): Observable<any> {
+    return this.http.put(`${this.apiUrlStudent}/${studentId}/cancel-plan`, {});
+  }
   
   registerStudent(requestBody: any): Observable<any> {
     return this.http.post(`${this.apiUrl}/registerStudent`, requestBody).pipe(
