@@ -72,14 +72,13 @@ export const routes: Routes = [
     {
       path: 'dashboard-student',
       title: 'Dashboard Student',
-      loadComponent: () => import('./components/Student/dashboard-premium/dashboard-premium.component').then(m => m.DashboardPremiumComponent),
-
+      component: DashboardPremiumComponent,
       canActivate: [studentGuardGuard] ,
       children:[
         {
           path: '',
           title: 'Dashboard Student',
-          loadComponent: () => import('./components/Student/carrers/carrers.component').then(m => m.CarrersComponent)
+          component: CarrersComponent,
         },
         
         {
@@ -120,13 +119,13 @@ export const routes: Routes = [
     {
       path: 'dashboard-student-free',
       title: 'Dashboard Student',
-      loadComponent: () => import('./components/Student/dashboard-free/dashboard-free.component').then(m => m.DashboardFreeComponent),
+      component: DashboardFreeComponent,
       canActivate: [studentFreeGuard],
       children:[
         {
           path: '',
           title: 'Dashboard Student',
-          loadComponent: () => import('./components/Student/carrers/carrers.component').then(m => m.CarrersComponent)
+          component: CarrersComponent,
         },
         {
           path: 'plans',
