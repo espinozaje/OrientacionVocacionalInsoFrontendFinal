@@ -111,7 +111,7 @@ export const routes: Routes = [
         {
           path: 'chat/:userId',
           title: 'Chat',
-          loadComponent: () => import('./components/Chat/chat.component').then(m => m.ChatComponent)
+          component: ChatComponent
         },
       ]
     },
@@ -226,7 +226,7 @@ export const routes: Routes = [
         {
           path: 'chat/:userId',
           title: 'Chat',
-          loadComponent: () => import('./components/Chat/chat.component').then(m => m.ChatComponent)
+          component: ChatComponent
         }
         
       ]

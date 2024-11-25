@@ -98,7 +98,7 @@ isLastNameDisabled: boolean = true;
       },
       error: (err) => {
         console.error('Error al actualizar el perfil', err);
-        alert('Hubo un error al actualizar el perfil');
+        alert(err.error.message || 'Hubo un error al actualizar el perfil');
       }
     });
   }
