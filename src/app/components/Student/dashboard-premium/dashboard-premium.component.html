@@ -24,17 +24,20 @@
                 <h3>Realizar Test</h3>
             </a>
             <a routerLink="/dashboard-student/list-advisories" class="active"
-           >
+            [class.disabled]="showTestWarning" 
+            [attr.disabled]="showTestWarning ? false : null">
                 <span class="material-icons-sharp">videocam</span>
                 <h3>Listar Asesorias</h3>
             </a>
             <a routerLink="/dashboard-student/advisors"  class="active"
-           >
+            [class.disabled]="showTestWarning" 
+            [attr.disabled]="showTestWarning ? false : null">
                 <span class="material-icons-sharp">groups</span>
                 <h3>Todos los Asesores</h3>
             </a>
             <a routerLink="/dashboard-student/my-advisors"  class="active"
-           >
+            [class.disabled]="showTestWarning" 
+            [attr.disabled]="showTestWarning ? false : null">
                 <span class="material-icons-sharp">groups</span>
                 <h3>Mis Asesores</h3>
             </a>

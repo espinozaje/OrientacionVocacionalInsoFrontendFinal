@@ -24,7 +24,8 @@
                 <h3>Realizar Test</h3>
             </a>
             <a routerLink="/dashboard-student-free/advisors"  class="active"
-       >
+            [class.disabled]="showTestWarning" 
+            [attr.disabled]="showTestWarning ? false : null">
                 <span class="material-icons-sharp">groups</span>
                 <h3>Asesores</h3>
             </a>
