@@ -52,6 +52,14 @@ export class AuthService {
   }
 
 
+  getUserById(id: string): Observable<any> {
+    const token = localStorage.getItem(this.tokenKey);
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    return this.http.get(`${this.apiUrl}/getUser/${id}`, { headers });
+  }
+
+
+
   resendVerificationCode(email: string): Observable<any> {
     const params = new HttpParams()
       .set('email', email);
@@ -241,12 +249,11 @@ logout(): void{
 }
 
 getUserInfo(): Observable<Adviser> {
-  const token = this.getToken();  // Obtiene el token del localStorage
+  const token = this.getToken();  
   const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
   
   return this.http.get<Adviser>(`${this.apiUrl}/me`, { headers }).pipe(
     map((response: Adviser) => {
-      // Aquí modificas la URL de la imagen del perfil
       if (response.img_profile) {
         // Asegúrate de construir la URL completa de la imagen
         response.img_profile = `${environment.apiUrl}api/v1/auth/${response.img_profile}`;

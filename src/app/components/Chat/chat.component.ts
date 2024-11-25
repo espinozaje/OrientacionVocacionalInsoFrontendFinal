@@ -4,6 +4,7 @@ import { ChatMessage } from '../../authentication/models/chat-message';
 import { ActivatedRoute } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { AuthService } from '../../service/auth.service';
 
 @Component({
   selector: 'app-chat',
@@ -18,8 +19,8 @@ export class ChatComponent implements OnInit{
   otherUserId: string = "";  
   roomId: string = "";       
   messageList: any[] = [];
-
-  constructor(private chat: ChatService, private route: ActivatedRoute){
+  user: any = { firstName: '', lastName: '', email: '', img_profile: '' };
+  constructor(private chat: ChatService, private route: ActivatedRoute, private authService: AuthService){
 
   }
 
@@ -29,7 +30,19 @@ export class ChatComponent implements OnInit{
     this.roomId = this.chat.generateRoomId(this.currentUserId, this.otherUserId);
       this.chat.joinRoom(this.roomId);
       this.listenerMessage();
+      this.authService.getUserById(this.currentUserId).subscribe({
+        next: (data) => {
+          this.user = data;
+        },
+        error: (err) => {
+          console.error('Error al obtener la información del usuario', err);
+        }
+      });
+     
   }
+
+
+  
 
   sendMessage(){
     const chatMessage = {
