@@ -25,7 +25,7 @@
     <div class="content-container">
       <img src="https://uniscopio.com/wp-content/uploads/2019/11/Habitos-de-Estudio.png" alt="Imagen Pregunta" class="question-image" width="220" height="auto" />
       <!-- Mostrar la pregunta actual mientras no se haya llegado al final -->
-      <div *ngIf="currentQuestionIndex < questions.length; else showResult" class="question-container">
+      <div *ngIf="currentQuestionIndex < questions.length" class="question-container">
         <h3>Pregunta {{ currentQuestionIndex + 1 }} de {{ questions.length }}</h3>
         <p>{{ questions[currentQuestionIndex].text }}</p>
 
@@ -48,6 +48,6 @@
       <div class="checkmark-stem"></div>
       <div class="checkmark-kick"></div>
     </div>
-    <p>{{ loadingMessage }}</p>
+    <p>Cargando resultados...</p>
   </div>
 </div>

@@ -68,11 +68,11 @@
             placeholder="Contraseña"
           >
           <div>
-            <div *ngIf="password.errors?.required && password.touched" class="invalid-feedback">
-              La contraseña es requerida.
+            <div *ngIf="password.errors?.['required'] && password.touched" class="error-message">
+              La contraseña es obligatoria.
             </div>
-            <div *ngIf="password.errors?.minlength && password.touched" class="invalid-feedback">
-              La contraseña debe tener al menos 6 caracteres.
+            <div *ngIf="password.errors?.['minlength'] && password.touched" class="error-message">
+              La contraseña debe tener al menos X caracteres.
             </div>
           </div>
         </div>
